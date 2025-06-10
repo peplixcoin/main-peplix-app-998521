@@ -44,7 +44,7 @@ function Dashboard() {
       }
 
       try {
-        const statsData = await fetchDataWithRetry('http://localhost:5000/api/users/stats', {
+        const statsData = await fetchDataWithRetry(`${process.env.REACT_APP_API_URL}/api/users/stats`, {
           headers: { Authorization: `Bearer ${token}` }
         });
 
@@ -72,14 +72,14 @@ function Dashboard() {
       }
 
       try {
-        const userData = await fetchDataWithRetry('http://localhost:5000/api/users/profile', {
+        const userData = await fetchDataWithRetry(`${process.env.REACT_APP_API_URL}/api/users/profile`, {
           headers: { Authorization: `Bearer ${token}` }
         });
 
         const investedAmount = userData.totalAmountInvested || 0;
         setTotalAmountInvested(investedAmount);
 
-        const transactionData = await fetchDataWithRetry('http://localhost:5000/api/users/transactions', {
+        const transactionData = await fetchDataWithRetry(`${process.env.REACT_APP_API_URL}/api/users/transactions`, {
           headers: { Authorization: `Bearer ${token}` }
         });
 

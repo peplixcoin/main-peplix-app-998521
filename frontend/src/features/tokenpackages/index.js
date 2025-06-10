@@ -30,7 +30,7 @@ function PackageList() {
     dispatch(clearNotification());
     const fetchPackages = async () => {
       try {
-        const data = await fetchDataWithRetry('http://localhost:5000/api/users/packages');
+        const data = await fetchDataWithRetry(`${process.env.REACT_APP_API_URL}/api/users/packages`);
 
         // Sort the packages by price in ascending order
         const sortedPackages = data.sort((a, b) => a.price - b.price);

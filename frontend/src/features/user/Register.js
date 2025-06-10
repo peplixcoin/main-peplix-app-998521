@@ -45,7 +45,7 @@ function Register() {
   useEffect(() => {
     const fetchTerms = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/users/terms');
+        const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/users/terms`);
         setTerms(res.data);
       } catch (error) {
         console.error('Failed to fetch terms', error);
@@ -128,7 +128,7 @@ function Register() {
 
     try {
       const data = await submitWithRetry({
-        url: 'http://localhost:5000/api/users/register',
+        url: `${process.env.REACT_APP_API_URL}/api/users/register`,
         data: {
           username: registerObj.name,
           email: registerObj.emailId,
@@ -175,7 +175,7 @@ function Register() {
       <div className="card mx-auto w-full max-w-5xl shadow-xl flex justify-center items-center">
         <div className="grid md:grid-cols-1 grid-cols-1 bg-base-100 rounded-xl w-full md:w-1/2 animate-fadeIn">
           <div className="py-24 px-10">
-            <h1 className='text-3xl text-center font-bold mb-8 '><img src="/logo197.png" className="w-12 inline-block mr-2 mask mask-circle" alt="dashwind-logo" />Stocklink</h1>
+            <h1 className='text-3xl text-center font-bold mb-8 '><img src="/logo197.png" className="w-12 inline-block mr-2 mask mask-circle" alt="dashwind-logo" />Peplix</h1>
             <h2 className="text-2xl font-semibold mb-2 text-center">Register</h2>
             <form onSubmit={submitForm}>
               <div className="mb-4">

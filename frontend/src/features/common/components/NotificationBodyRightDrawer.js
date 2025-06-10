@@ -21,7 +21,7 @@ function NotificationBodyRightDrawer() {
     useEffect(() => {
         const fetchNotifications = async () => {
             try {
-                const data = await fetchDataWithRetry('http://localhost:5000/api/users/getnotifications');
+                const data = await fetchDataWithRetry('${process.env.REACT_APP_API_URL}/api/users/getnotifications');
                 setNotifications(data);
             } catch (error) {
                 console.error('Error fetching notifications:', error);

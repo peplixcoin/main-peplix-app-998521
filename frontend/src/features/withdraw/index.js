@@ -40,7 +40,7 @@ function Withdraw() {
   useEffect(() => {
     const fetchTransactions = async () => {
       try {
-        const data = await fetchDataWithRetry('http://localhost:5000/api/users/transactions', {
+        const data = await fetchDataWithRetry(`${process.env.REACT_APP_API_URL}/api/users/transactions`, {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
         });
         setTransactionPackages(data);
@@ -80,7 +80,7 @@ function Withdraw() {
 
     try {
       const res = await axios.post(
-        'http://localhost:5000/api/users/withdraw',
+        `${process.env.REACT_APP_API_URL}/api/users/withdraw`,
         { noOfTokens, upiId, transactionId: selectedTransaction },
         {
           headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },

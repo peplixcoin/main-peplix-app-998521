@@ -41,13 +41,13 @@ function Billing() {
                 return;
             }
             try {
-                const resUser = await fetchDataWithRetry('http://localhost:5000/api/users/profile', {
+                const resUser = await fetchDataWithRetry(`${process.env.REACT_APP_API_URL}/api/users/profile`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 const investedAmount = resUser.totalAmountInvested || 0;
                 setTotalAmountInvested(investedAmount);
 
-                const resTransactions = await fetchDataWithRetry('http://localhost:5000/api/users/transactions', {
+                const resTransactions = await fetchDataWithRetry(`${process.env.REACT_APP_API_URL}/api/users/transactions`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
 

@@ -75,7 +75,7 @@ function ResetPassword() {
       <div className="card mx-auto w-full max-w-5xl shadow-xl flex justify-center items-center">
         <div className="grid md:grid-cols-1 grid-cols-1 bg-base-100 rounded-xl w-full md:w-1/2 animate-fadeIn">
           <div className="py-24 px-10">
-            <h1 className='text-3xl text-center font-bold '><img src="/logo197.png" className="w-12 inline-block mr-2 mask mask-circle" alt="dashwind-logo" />Stocklink</h1>
+            <h1 className='text-3xl text-center font-bold '><img src="/logo197.png" className="w-12 inline-block mr-2 mask mask-circle" alt="dashwind-logo" />Peplix</h1>
             <h2 className="text-2xl font-semibold mb-2 mt-10 text-center">Reset Password</h2>
 
             {passwordReset ? (

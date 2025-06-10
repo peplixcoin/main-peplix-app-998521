@@ -27,7 +27,7 @@ function LeftSidebar() {
                 <li className="mb-2 font-bold text-base lg:text-xl">
                     <Link to={'/app/dashboard'} onClick={() => close()}>
                         <img className="mask mask-squircle w-10" src="/logo197.png" alt="DashWind Logo" />
-                        Stocklink
+                        Peplix
                     </Link>
                 </li>
 

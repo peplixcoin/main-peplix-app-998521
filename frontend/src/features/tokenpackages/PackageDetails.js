@@ -45,7 +45,7 @@ function PackageDetails() {
         dispatch(clearNotification());
         const fetchPackageDetails = async () => {
             try {
-                const data = await fetchDataWithRetry(`http://localhost:5000/api/users/packages/${packageId}`);
+                const data = await fetchDataWithRetry(`${process.env.REACT_APP_API_URL}/api/users/packages/${packageId}`);
                 setPackageDetails(data);
             } catch (err) {
                 console.error('Failed to fetch package details', err);
@@ -59,7 +59,7 @@ function PackageDetails() {
     useEffect(() => {
         const fetchTokenValue = async () => {
             try {
-                const data = await fetchDataWithRetry('http://localhost:5000/api/users/stats', {
+                const data = await fetchDataWithRetry(`${process.env.REACT_APP_API_URL}/api/users/stats`, {
                     headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
                 });
                 if (data && data.tokenValue > 0) {
@@ -89,7 +89,7 @@ function PackageDetails() {
     useEffect(() => {
         const fetchUSDRate = async () => {
             try {
-                const data = await fetchDataWithRetry('http://localhost:5000/api/users/usd-rate');
+                const data = await fetchDataWithRetry(`${process.env.REACT_APP_API_URL}/api/users/usd-rate`);
                 const rateInINR = data.rate;
                 if (packageDetails) {
                     setAmountInINR((packageDetails.price * rateInINR).toFixed(2));
@@ -115,7 +115,7 @@ function PackageDetails() {
 
     const fetchQRCodeWithRetry = async (retries = 3) => {
         try {
-            const response = await axios.get('http://localhost:5000/api/users/qr-code', {
+            const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/users/qr-code`, {
                 responseType: 'arraybuffer',
             });
             const imageBlob = new Blob([response.data], { type: response.headers['content-type'] });
@@ -190,7 +190,7 @@ function PackageDetails() {
             const submitUTRWithRetry = async (retries = 3) => {
                 try {
                     const response = await axios.post(
-                        'http://localhost:5000/api/users/submit-utr',
+                        `${process.env.REACT_APP_API_URL}/api/users/submit-utr`,
                         {
                             packageId: packageDetails._id,
                             packageAmount: packageDetails.price,

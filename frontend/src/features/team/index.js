@@ -44,7 +44,7 @@ function Leads() {
             }
 
             try {
-                const data = await fetchDataWithRetry('http://localhost:5000/api/users/profile', {
+                const data = await fetchDataWithRetry(`${process.env.REACT_APP_API_URL}/api/users/profile`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setWallet(data.wallet || 0);
@@ -67,7 +67,7 @@ function Leads() {
             }
 
             try {
-                const data = await fetchDataWithRetry(`http://localhost:5000/api/users/team`, {
+                const data = await fetchDataWithRetry(`${process.env.REACT_APP_API_URL}/api/users/team`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setTeamMembers(data || []);
@@ -80,7 +80,7 @@ function Leads() {
         const fetchWithdrawWallet = async () => {
             const token = localStorage.getItem('token');
             try {
-                const data = await fetchDataWithRetry('http://localhost:5000/api/users/withdraw-wallet', {
+                const data = await fetchDataWithRetry(`${process.env.REACT_APP_API_URL}/api/users/withdraw-wallet`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setWithdrawWallet(data.withdrawWallet || 0);
@@ -92,7 +92,7 @@ function Leads() {
         const fetchWithdrawalHistory = async () => {
             const token = localStorage.getItem('token');
             try {
-                const data = await fetchDataWithRetry('http://localhost:5000/api/users/withdrawal-history', {
+                const data = await fetchDataWithRetry(`${process.env.REACT_APP_API_URL}/api/users/withdrawal-history`, {
                     headers: { Authorization: `Bearer ${token}` }
                 });
                 setWithdrawalHistory(data || []);
@@ -141,7 +141,7 @@ function Leads() {
         }
     
         try {
-            const res = await fetchDataWithRetry('http://localhost:5000/api/users/withdraw-wallet', {
+            const res = await fetchDataWithRetry(`${process.env.REACT_APP_API_URL}/api/users/withdraw-wallet`, {
                 method: 'POST',
                 data: { withdrawAmount, upiId },
                 headers: { Authorization: `Bearer ${token}` }

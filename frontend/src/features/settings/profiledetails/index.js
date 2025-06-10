@@ -40,7 +40,7 @@ function Profile() {
 
       try {
         const data = await fetchDataWithRetry(
-          'http://localhost:5000/api/users/profile',
+          `${process.env.REACT_APP_API_URL}/api/users/profile`,
           {
             headers: { Authorization: `Bearer ${token}` },
             timeout: 5000, // Timeout after 5 seconds

@@ -35,7 +35,7 @@ function RankBonus() {
 
             try {
                 const data = await fetchDataWithRetry(
-                    'http://localhost:5000/api/users/profile',
+                    `${process.env.REACT_APP_API_URL}/api/users/profile`,
                     {
                         headers: { Authorization: `Bearer ${token}` },
                         timeout: 5000,
@@ -63,7 +63,7 @@ function RankBonus() {
             <div className="relative w-96 h-56 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg shadow-lg text-white p-6 flex flex-col justify-between transform transition-transform hover:scale-105">
                 {/* Card Header */}
                 <div className="flex justify-between items-center">
-                    <h2 className="text-xl font-bold">Stocklink</h2>
+                    <h2 className="text-xl font-bold">Peplix</h2>
                     <svg className="w-10 h-10" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
                     </svg>

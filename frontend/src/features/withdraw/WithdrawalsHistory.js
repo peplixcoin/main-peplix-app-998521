@@ -26,7 +26,7 @@ function WithdrawalsHistory() {
     const fetchWithdrawals = async () => {
       try {
         const token = localStorage.getItem('token');
-        const data = await fetchDataWithRetry('http://localhost:5000/api/users/withdrawals-history', {
+        const data = await fetchDataWithRetry(`${process.env.REACT_APP_API_URL}/api/users/withdrawals-history`, {
           headers: { Authorization: `Bearer ${token}` }
         });
         setWithdrawals(data);

@@ -18,6 +18,7 @@ app.use(express.json());
 app.use(cors({
     origin: [
         'https://stocklinkinvest.vercel.app',
+        'https://main-peplix-app-998521.onrender.com',
         'http://localhost:3000',
         'http://localhost:3001'
     ],
