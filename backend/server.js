@@ -20,7 +20,8 @@ app.use(cors({
         'https://stocklinkinvest.vercel.app',
         'https://main-peplix-app-998521.onrender.com',
         'http://localhost:3000',
-        'http://localhost:3001'
+        'http://localhost:3001',
+        'https://main-peplix-app-998521.vercel.app'
     ],
     credentials: true // If you're using cookies for auth
 }));
@@ -33,10 +34,7 @@ app.use('/api/users', userRoutes);
 // Serve static files from the React build folder
 app.use(express.static(path.join(__dirname, 'build')));
 
-// Handle client-side routing by serving index.html for all non-API routes
-app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build', 'index.html'));
-});
+
 
 // Server
 const PORT =  5000;
