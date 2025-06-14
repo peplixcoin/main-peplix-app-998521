@@ -21,7 +21,7 @@ app.use(cors({
         'https://main-peplix-app-998521.onrender.com',
         'http://localhost:3000',
         'http://localhost:3001',
-        'https://main-peplix-app-998521.vercel.app'
+        'https://peplixcoin.vercel.app'
     ],
     credentials: true // If you're using cookies for auth
 }));
